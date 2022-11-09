@@ -1,5 +1,3 @@
-using EnglishNoteUI.Models;
-
 namespace EnglishNoteUI
 {
     internal static class Program

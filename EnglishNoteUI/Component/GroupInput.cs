@@ -36,6 +36,31 @@ namespace EnglishNoteUI.Component
             }
         }
 
+        private Binding _CustomDataBindings;
+        public Binding CustomDataBindings
+        {
+            get { return _CustomDataBindings; }
+            set
+            {
+                _CustomDataBindings = value;
+                if(value is Binding b)
+                {
+                    textBox1.DataBindings.Add(b);
+                }
+            }
+        }
+
+        private bool _CustomEnabled;
+        public bool CustomEnabled
+        {
+            get { return _CustomEnabled; }
+            set
+            {
+                _CustomEnabled = value;
+                textBox1.Enabled = value;
+            }
+        }
+
         public GroupInput()
         {
             InitializeComponent();

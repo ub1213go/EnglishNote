@@ -1,9 +1,10 @@
-﻿using EnglishNoteUI.Models;
+﻿using EnglishNoteService;
 using SqlSugar;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.Intrinsics.Arm;
@@ -16,140 +17,149 @@ namespace EnglishNoteUI
 {
     public partial class FrmTest : Form
     {
-        public EnglishModel englishModel { get; set; }
-        public List<EnglishData> englishDatas { get; set; }
-        public int[] testList { get; set; }
-        public int testCount { get; set; }
-        public int answer { get; set; }
-        public FrmTest(SingleWordManager _englishModel)
+        public readonly ITestDataConvertService testDataConvertService;
+        public readonly IRandomTestService randomTestService;
+        public readonly IMyRandomService myRandomService;
+        public EnglishDataViewModel englishDataViewModel;
+
+        public List<TestData[]> quizs;
+        public int quizIndex;
+
+        public delegate void QuizDataChange(object sender, EventArgs e);
+
+        private event QuizDataChange _quizsDataChangeEvent;
+        public event QuizDataChange quizsDataChangeEvent
         {
-            InitializeComponent();
-            if(_englishModel != null)
-            englishModel = _englishModel;
-            englishDatas = englishModel.GetAll();
-            randomTest();
-            refreshTest();
+            add => _quizsDataChangeEvent += value;
+            remove => _quizsDataChangeEvent -= value;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        public FrmTest(EnglishDataViewModel _englishDataViewModel)
         {
-            if(textBox2.Text == answer.ToString())
+            InitializeComponent();
+            testDataConvertService = FullService.GetService<ITestDataConvertService>();
+            randomTestService = FullService.GetService<IRandomTestService>();
+            myRandomService = FullService.GetService<IMyRandomService>();
+
+            englishDataViewModel = _englishDataViewModel;
+            quizs = new List<TestData[]>();
+            quizsDataChangeEvent += quizsDataChange;
+            quizIndex = 0;
+
+            this.Resize += formResize;
+
+            initTestData();
+        }
+
+        private void btn_Submit_Click(object sender, EventArgs e)
+        {
+            try
             {
-                MessageBox.Show("答對了");
-                textBox2.Text = "";
-                textBox2.Focus();
-                refreshTest();
+                int inputQuizIndex = Convert.ToInt32(tb_inputBox.Text);
+
+                if(quizs[quizIndex][0].Equals(quizs[quizIndex][inputQuizIndex]))
+                {
+                    MessageBox.Show("恭喜你答對了！");
+                    nextQuiz();
+                }
+                else
+                {
+                    MessageBox.Show("答錯了！");
+                }
+            }
+            catch(Exception err)
+            {
+                Debug.WriteLine(err.Message);
+                MessageBox.Show("輸入不正確，請重新輸入");
+            }
+
+            tb_inputBox.Text = "";
+            tb_inputBox.Focus();
+        }
+
+        private void initTestData()
+        {
+            testDataConvertService.englishData = englishDataViewModel.GetAll(); ;
+            var testData = testDataConvertService.getTestData();
+            var testNumber = randomTestService.GetTestNumber(testData.Count, 5);
+            foreach(var num in testNumber)
+            {
+                TestData[] quiz = new TestData[num.Length];
+                int answer = num[0];
+                quiz[0] = testData[answer];
+                for (int i = 1; i < num.Length; i++)
+                {
+                    quiz[i] = testData[num[i]];
+                }
+                quizs.Add(quiz);
+            }
+
+            _quizsDataChangeEvent?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void nextQuiz()
+        {
+            quizIndex++;
+            _quizsDataChangeEvent?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void showQuizToBoard()
+        {
+            if (quizIndex < quizs.Count - 1)
+            {
+                string res = "";
+                for (int i = 0; i < quizs[quizIndex].Length; i++)
+                {
+                    if (i == 0)
+                    {
+                        res += $"題目 {quizs[quizIndex][0].EnglishName} {String.Join(", ", quizs[quizIndex][0].Pronounce)}" + Environment.NewLine;
+                    }
+                    else
+                    {
+                        var someOne = myRandomService.Next(quizs[0][i].Translate.Count);
+                        res += $"{i}. {quizs[quizIndex][i].Translate[someOne]}" + Environment.NewLine;
+                    }
+                }
+                tb_quizsBoard.Text = res;
             }
             else
             {
-                MessageBox.Show("答錯了");
-                textBox2.Text = "";
-                textBox2.Focus();
+                MessageBox.Show("題目已全數回答完畢！");
+                tb_quizsBoard.Text = "";
             }
         }
 
-        public void refreshTest()
+        private void quizsDataChange(object sender, EventArgs e)
         {
-            if(testCount >= englishDatas.Count)
-            {
-                MessageBox.Show("您已全數作答完畢");
-                // todo: 正確率、答題數 key在textbox1
-                return;
-            }
-
-
-            Random rdm = new Random();
-            List<int> rdmPick = new List<int>();
-            rdmPick.Add(testList[testCount]);
-            for (int i = 0; i < 2; i++)
-            {
-                var rdmVal = rdm.Next(englishDatas.Count);
-                while (rdmPick.Contains(rdmVal))
-                {
-                    rdmVal = rdm.Next(englishDatas.Count);
-                }
-                rdmPick.Add(rdmVal);
-            }
-
-            List<int> sort = new List<int>();
-            textBox1.Text = $"{englishDatas[rdmPick[0]].EnglishName}\r\n";
-            for (int i = 0; i < rdmPick.Count; i++)
-            {
-                var rdmVal = rdm.Next(rdmPick.Count);
-                while (sort.Contains(rdmVal))
-                {
-                    rdmVal = rdm.Next(rdmPick.Count);
-                }
-                sort.Add(rdmVal);
-
-                if(rdmVal == 0)
-                    answer = i + 1;
-
-                textBox1.Text += $"{i + 1}. {englishDatas[rdmPick[rdmVal]].Translate}\r\n";
-            }
-            testCount++;
-        }
-    
-        public void randomTest()
-        {
-            Random rdm = new Random();
-
-            testList = new int[englishDatas.Count];
-            for(int i = 0; i < testList.Length; i++)
-            {
-                testList[i] = i;
-            }
-
-            for (int i = 0; i < testList.Length; i++)
-            {
-                var rdmVal = rdm.Next(testList.Length);
-                while(i == rdmVal) {
-                    rdmVal = rdm.Next(testList.Length);
-                }
-                testList[i] ^= testList[rdmVal];
-                testList[rdmVal] ^= testList[i];
-                testList[i] ^= testList[rdmVal];
-            }
-
+            showQuizToBoard();
         }
 
-        public void translateChoise()
+        private void tb_inputBox_KeyDown(object sender, KeyEventArgs e)
         {
+            if(e.KeyCode == Keys.Enter)
+            {
+                btn_Submit_Click(sender, e);
+            }
+        }
 
+        private void formResize(object sender, EventArgs e)
+        {
+            var size = new Size();
+            size.Width = this.Width - 50;
+            size.Height = this.Height - tb_inputBox.Height - btn_Submit.Height - 100;
+            tb_quizsBoard.Size = size;
+
+            var point = new Point();
+            point.X = tb_quizsBoard.Right - tb_inputBox.Width;
+            point.Y = tb_quizsBoard.Bottom + 10;
+            tb_inputBox.Location = point;
+
+            point = new Point();
+            point.X = tb_quizsBoard.Right - btn_Submit.Width;
+            point.Y = tb_quizsBoard.Bottom + tb_inputBox.Height + 10;
+            btn_Submit.Location = point;
         }
     }
 
-    /// <summary>
-    /// 單字收集做處理
-    /// </summary>
-    public class SingleWordManager
-    {
-        private readonly EnglishModel _englishModel;
-        public SingleWordManager()
-        {
-            
-        }
-
-        public EnglishModel getOne()
-        {
-
-        }
-    }
-
-    /// <summary>
-    /// 相同單字單字指向相同翻譯集合
-    /// </summary>
-    public class translateCollection
-    {
-
-    }
-
-    public class InjectionException : Exception
-    {
-        public override string Message { get; }
-        public InjectionException(object obj) : base()
-        {
-            Message = $"{obj.GetType().Name} 注入無實體";
-        }
-    }
+  
 }

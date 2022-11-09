@@ -1,24 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Code\\cs\\EnglishNote\\EnglishNoteUI\\EnglishNoteUI.csproj": {}
+    "D:\\EnglishNote\\EnglishNoteUI\\EnglishNoteUI.csproj": {}
   },
   "projects": {
-    "D:\\Code\\cs\\EnglishNote\\EnglishNoteService\\EnglishNoteService.csproj": {
+    "D:\\EnglishNote\\EnglishNoteService\\EnglishNoteService.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Code\\cs\\EnglishNote\\EnglishNoteService\\EnglishNoteService.csproj",
+        "projectUniqueName": "D:\\EnglishNote\\EnglishNoteService\\EnglishNoteService.csproj",
         "projectName": "EnglishNoteService",
-        "projectPath": "D:\\Code\\cs\\EnglishNote\\EnglishNoteService\\EnglishNoteService.csproj",
-        "packagesPath": "C:\\Users\\ub121\\.nuget\\packages\\",
-        "outputPath": "D:\\Code\\cs\\EnglishNote\\EnglishNoteService\\obj\\",
+        "projectPath": "D:\\EnglishNote\\EnglishNoteService\\EnglishNoteService.csproj",
+        "packagesPath": "C:\\Users\\ub\\.nuget\\packages\\",
+        "outputPath": "D:\\EnglishNote\\EnglishNoteService\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\ub121\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ub\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
@@ -28,7 +29,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -72,25 +72,26 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Code\\cs\\EnglishNote\\EnglishNoteUI\\EnglishNoteUI.csproj": {
+    "D:\\EnglishNote\\EnglishNoteUI\\EnglishNoteUI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Code\\cs\\EnglishNote\\EnglishNoteUI\\EnglishNoteUI.csproj",
+        "projectUniqueName": "D:\\EnglishNote\\EnglishNoteUI\\EnglishNoteUI.csproj",
         "projectName": "EnglishNoteUI",
-        "projectPath": "D:\\Code\\cs\\EnglishNote\\EnglishNoteUI\\EnglishNoteUI.csproj",
-        "packagesPath": "C:\\Users\\ub121\\.nuget\\packages\\",
-        "outputPath": "D:\\Code\\cs\\EnglishNote\\EnglishNoteUI\\obj\\",
+        "projectPath": "D:\\EnglishNote\\EnglishNoteUI\\EnglishNoteUI.csproj",
+        "packagesPath": "C:\\Users\\ub\\.nuget\\packages\\",
+        "outputPath": "D:\\EnglishNote\\EnglishNoteUI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\ub121\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ub\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
@@ -100,15 +101,14 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0-windows7.0": {
             "targetAlias": "net6.0-windows",
             "projectReferences": {
-              "D:\\Code\\cs\\EnglishNote\\EnglishNoteService\\EnglishNoteService.csproj": {
-                "projectPath": "D:\\Code\\cs\\EnglishNote\\EnglishNoteService\\EnglishNoteService.csproj"
+              "D:\\EnglishNote\\EnglishNoteService\\EnglishNoteService.csproj": {
+                "projectPath": "D:\\EnglishNote\\EnglishNoteService\\EnglishNoteService.csproj"
               }
             }
           }
@@ -141,7 +141,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -1,4 +1,4 @@
-﻿using EnglishNoteUI.Models;
+﻿using EnglishNoteService;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,12 +14,12 @@ namespace EnglishNoteUI
     public partial class FrmMain : Form
     {
         private int childFormNumber = 0;
-        private EnglishModel _englishModel;
+        private EnglishDataViewModel _EnglishDataViewModel;
 
         public FrmMain()
         {
             InitializeComponent();
-            _englishModel = new EnglishModel();
+            _EnglishDataViewModel = new EnglishDataViewModel();
         }
 
         private void 英文輸入ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -35,7 +35,7 @@ namespace EnglishNoteUI
                 
             }
 
-            var frm = new FrmNote(_englishModel);
+            var frm = new FrmNote(_EnglishDataViewModel);
             frm.MdiParent = this;
             frm.Dock = DockStyle.Fill;
             frm.Show();
@@ -54,7 +54,7 @@ namespace EnglishNoteUI
 
             }
 
-            var frm = new FrmTest(_englishModel);
+            var frm = new FrmTest(_EnglishDataViewModel);
             frm.MdiParent = this;
             frm.Dock = DockStyle.Fill;
             frm.Show();
