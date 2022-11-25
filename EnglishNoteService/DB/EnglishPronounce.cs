@@ -12,33 +12,33 @@ namespace EnglishNote.DB
     public class EnglishPronounce : IDBSet
     {
         [SugarColumn(ColumnName = "id", IsPrimaryKey = true, IsIdentity = true)]
-        public int? Id { get; set; }
+        public int? id { get; set; }
         [SugarColumn(ColumnName = "english_id")]
-        public int? EnglishId { get; set; }
+        public int? englishId { get; set; }
         [SugarColumn(ColumnName = "pronounce")]
-        public string? Pronounce { get; set; }
+        public string? pronounce { get; set; }
         [SugarColumn(ColumnName = "create_datetime")]
-        public DateTime? CreateDatetime { get; set; }
+        public DateTime? createDatetime { get; set; }
         [SugarColumn(ColumnName = "is_visible")]
-        public bool? IsVisible { get; set; }
+        public bool? isVisible { get; set; }
 
 
-        public void Delete(DB db)
+        public void delete(DB db)
         {
             db.Deleteable(this).ExecuteCommand();
         }
 
-        public void Insert(DB db)
+        public void insert(DB db)
         {
-            this.Id = db.Insertable(this).ExecuteReturnIdentity();
+            this.id = db.Insertable(this).ExecuteReturnIdentity();
         }
 
-        public T Select<T>(DB db)
+        public T select<T>(DB db)
         {
             return default(T);
         }
 
-        public void Update(DB db)
+        public void update(DB db)
         {
             db.Updateable(this).ExecuteCommand();
         }

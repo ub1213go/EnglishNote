@@ -10,3 +10,15 @@ D:\Code\cs\EnglishNote\EnglishNoteService\obj\Release\net6.0\EnglishNoteService.
 D:\Code\cs\EnglishNote\EnglishNoteService\obj\Release\net6.0\refint\EnglishNoteService.dll
 D:\Code\cs\EnglishNote\EnglishNoteService\obj\Release\net6.0\EnglishNoteService.pdb
 D:\Code\cs\EnglishNote\EnglishNoteService\obj\Release\net6.0\ref\EnglishNoteService.dll
+D:\EnglishNote\EnglishNoteService\bin\Release\net6.0\EnglishNoteService.deps.json
+D:\EnglishNote\EnglishNoteService\bin\Release\net6.0\EnglishNoteService.dll
+D:\EnglishNote\EnglishNoteService\bin\Release\net6.0\EnglishNoteService.pdb
+D:\EnglishNote\EnglishNoteService\obj\Release\net6.0\EnglishNoteService.csproj.AssemblyReference.cache
+D:\EnglishNote\EnglishNoteService\obj\Release\net6.0\EnglishNoteService.GeneratedMSBuildEditorConfig.editorconfig
+D:\EnglishNote\EnglishNoteService\obj\Release\net6.0\EnglishNoteService.AssemblyInfoInputs.cache
+D:\EnglishNote\EnglishNoteService\obj\Release\net6.0\EnglishNoteService.AssemblyInfo.cs
+D:\EnglishNote\EnglishNoteService\obj\Release\net6.0\EnglishNoteService.csproj.CoreCompileInputs.cache
+D:\EnglishNote\EnglishNoteService\obj\Release\net6.0\EnglishNoteService.dll
+D:\EnglishNote\EnglishNoteService\obj\Release\net6.0\refint\EnglishNoteService.dll
+D:\EnglishNote\EnglishNoteService\obj\Release\net6.0\EnglishNoteService.pdb
+D:\EnglishNote\EnglishNoteService\obj\Release\net6.0\ref\EnglishNoteService.dll

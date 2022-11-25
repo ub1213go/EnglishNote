@@ -28,6 +28,22 @@
           }
         }
       },
+      "JWT/9.0.3": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "10.0.3"
+        },
+        "compile": {
+          "lib/net6.0/JWT.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/JWT.dll": {
+            "related": ".pdb;.xml"
+          }
+        }
+      },
       "K4os.Compression.LZ4/1.2.6": {
         "type": "package",
         "dependencies": {
@@ -2364,6 +2380,33 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XmlDocument.dll": {}
         }
+      },
+      "Encrypt/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "JWT": "9.0.3"
+        },
+        "compile": {
+          "bin/placeholder/Encrypt.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Encrypt.dll": {}
+        }
+      },
+      "EnglishNoteService/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "SqlSugarCore": "5.1.2.4",
+          "System.Data.SqlClient": "4.8.3"
+        },
+        "compile": {
+          "bin/placeholder/EnglishNoteService.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/EnglishNoteService.dll": {}
+        }
       }
     }
   },
@@ -2414,6 +2457,35 @@
         "lib/netstandard2.0/Google.Protobuf.dll",
         "lib/netstandard2.0/Google.Protobuf.pdb",
         "lib/netstandard2.0/Google.Protobuf.xml"
+      ]
+    },
+    "JWT/9.0.3": {
+      "sha512": "XhXVpp7pRAjsL+3LXRchxNr49zyQ9e24SaamS3+aF8/qiqa0J1iJATJdxRY2XFW7l7cpDCmURqLD6UPfBIv6nA==",
+      "type": "package",
+      "path": "jwt/9.0.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "jwt.9.0.3.nupkg.sha512",
+        "jwt.nuspec",
+        "lib/net35/JWT.dll",
+        "lib/net35/JWT.pdb",
+        "lib/net35/JWT.xml",
+        "lib/net40/JWT.dll",
+        "lib/net40/JWT.pdb",
+        "lib/net40/JWT.xml",
+        "lib/net46/JWT.dll",
+        "lib/net46/JWT.pdb",
+        "lib/net46/JWT.xml",
+        "lib/net6.0/JWT.dll",
+        "lib/net6.0/JWT.pdb",
+        "lib/net6.0/JWT.xml",
+        "lib/netstandard1.3/JWT.dll",
+        "lib/netstandard1.3/JWT.pdb",
+        "lib/netstandard1.3/JWT.xml",
+        "lib/netstandard2.0/JWT.dll",
+        "lib/netstandard2.0/JWT.pdb",
+        "lib/netstandard2.0/JWT.xml"
       ]
     },
     "K4os.Compression.LZ4/1.2.6": {
@@ -7526,34 +7598,46 @@
         "system.xml.xmldocument.4.3.0.nupkg.sha512",
         "system.xml.xmldocument.nuspec"
       ]
+    },
+    "Encrypt/1.0.0": {
+      "type": "project",
+      "path": "../Encrypt/Encrypt.csproj",
+      "msbuildProject": "../Encrypt/Encrypt.csproj"
+    },
+    "EnglishNoteService/1.0.0": {
+      "type": "project",
+      "path": "../EnglishNoteService/EnglishNoteService.csproj",
+      "msbuildProject": "../EnglishNoteService/EnglishNoteService.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "SqlSugarCore >= 5.1.2.4",
-      "System.Data.SqlClient >= 4.8.3"
+      "Encrypt >= 1.0.0",
+      "EnglishNoteService >= 1.0.0"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ub121\\.nuget\\packages\\": {},
+    "C:\\Users\\ub\\.nuget\\packages\\": {},
     "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
-    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
+    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Code\\cs\\EnglishNote\\Lab\\Lab.csproj",
+      "projectUniqueName": "D:\\EnglishNote\\Lab\\Lab.csproj",
       "projectName": "Lab",
-      "projectPath": "D:\\Code\\cs\\EnglishNote\\Lab\\Lab.csproj",
-      "packagesPath": "C:\\Users\\ub121\\.nuget\\packages\\",
-      "outputPath": "D:\\Code\\cs\\EnglishNote\\Lab\\obj\\",
+      "projectPath": "D:\\EnglishNote\\Lab\\Lab.csproj",
+      "packagesPath": "C:\\Users\\ub\\.nuget\\packages\\",
+      "outputPath": "D:\\EnglishNote\\Lab\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\ub121\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ub\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
@@ -7563,13 +7647,19 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "D:\\EnglishNote\\Encrypt\\Encrypt.csproj": {
+              "projectPath": "D:\\EnglishNote\\Encrypt\\Encrypt.csproj"
+            },
+            "D:\\EnglishNote\\EnglishNoteService\\EnglishNoteService.csproj": {
+              "projectPath": "D:\\EnglishNote\\EnglishNoteService\\EnglishNoteService.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
@@ -7581,16 +7671,6 @@
     "frameworks": {
       "net6.0": {
         "targetAlias": "net6.0",
-        "dependencies": {
-          "SqlSugarCore": {
-            "target": "Package",
-            "version": "[5.1.2.4, )"
-          },
-          "System.Data.SqlClient": {
-            "target": "Package",
-            "version": "[4.8.3, )"
-          }
-        },
         "imports": [
           "net461",
           "net462",
@@ -7607,7 +7687,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
       }
     }
   }

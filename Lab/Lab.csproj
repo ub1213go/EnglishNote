@@ -8,8 +8,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="SqlSugarCore" Version="5.1.2.4" />
-    <PackageReference Include="System.Data.SqlClient" Version="4.8.3" />
+    <ProjectReference Include="..\Encrypt\Encrypt.csproj" />
+    <ProjectReference Include="..\EnglishNoteService\EnglishNoteService.csproj" />
   </ItemGroup>
 
 </Project>

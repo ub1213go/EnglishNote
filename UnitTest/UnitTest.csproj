@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Lab\Lab.csproj" />
+    <ProjectReference Include="..\EnglishNoteService\EnglishNoteService.csproj" />
   </ItemGroup>
 
 </Project>

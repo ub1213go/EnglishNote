@@ -8,8 +8,8 @@
     ".NETCoreApp,Version=v6.0": {
       "Lab/1.0.0": {
         "dependencies": {
-          "SqlSugarCore": "5.1.2.4",
-          "System.Data.SqlClient": "4.8.3"
+          "Encrypt": "1.0.0",
+          "EnglishNoteService": "1.0.0"
         },
         "runtime": {
           "Lab.dll": {}
@@ -28,6 +28,17 @@
           "lib/net5.0/Google.Protobuf.dll": {
             "assemblyVersion": "3.19.4.0",
             "fileVersion": "3.19.4.0"
+          }
+        }
+      },
+      "JWT/9.0.3": {
+        "dependencies": {
+          "Newtonsoft.Json": "10.0.3"
+        },
+        "runtime": {
+          "lib/net6.0/JWT.dll": {
+            "assemblyVersion": "9.0.0.0",
+            "fileVersion": "9.0.0.0"
           }
         }
       },
@@ -1432,6 +1443,23 @@
           "System.Threading": "4.3.0",
           "System.Xml.ReaderWriter": "4.3.0"
         }
+      },
+      "Encrypt/1.0.0": {
+        "dependencies": {
+          "JWT": "9.0.3"
+        },
+        "runtime": {
+          "Encrypt.dll": {}
+        }
+      },
+      "EnglishNoteService/1.0.0": {
+        "dependencies": {
+          "SqlSugarCore": "5.1.2.4",
+          "System.Data.SqlClient": "4.8.3"
+        },
+        "runtime": {
+          "EnglishNoteService.dll": {}
+        }
       }
     }
   },
@@ -1454,6 +1482,13 @@
       "sha512": "sha512-fd07/ykL4O4FhqrZIELm5lmiyOHfdPg9+o+hWr6tcfRdS7tHXnImg/2wtogLzlW2eEmr0J7j6ZrZvaWOLiJbxQ==",
       "path": "google.protobuf/3.19.4",
       "hashPath": "google.protobuf.3.19.4.nupkg.sha512"
+    },
+    "JWT/9.0.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-XhXVpp7pRAjsL+3LXRchxNr49zyQ9e24SaamS3+aF8/qiqa0J1iJATJdxRY2XFW7l7cpDCmURqLD6UPfBIv6nA==",
+      "path": "jwt/9.0.3",
+      "hashPath": "jwt.9.0.3.nupkg.sha512"
     },
     "K4os.Compression.LZ4/1.2.6": {
       "type": "package",
@@ -2371,6 +2406,16 @@
       "sha512": "sha512-lJ8AxvkX7GQxpC6GFCeBj8ThYVyQczx2+f/cWHJU8tjS7YfI6Cv6bon70jVEgs2CiFbmmM8b9j1oZVx0dSI2Ww==",
       "path": "system.xml.xmldocument/4.3.0",
       "hashPath": "system.xml.xmldocument.4.3.0.nupkg.sha512"
+    },
+    "Encrypt/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "EnglishNoteService/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     }
   }
 }

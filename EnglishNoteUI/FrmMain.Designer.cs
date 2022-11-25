@@ -44,17 +44,17 @@
             this.statusStrip.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel});
-            this.statusStrip.Location = new System.Drawing.Point(0, 771);
+            this.statusStrip.Location = new System.Drawing.Point(0, 711);
             this.statusStrip.Name = "statusStrip";
-            this.statusStrip.Padding = new System.Windows.Forms.Padding(2, 0, 26, 0);
-            this.statusStrip.Size = new System.Drawing.Size(1159, 30);
+            this.statusStrip.Padding = new System.Windows.Forms.Padding(1, 0, 17, 0);
+            this.statusStrip.Size = new System.Drawing.Size(1027, 22);
             this.statusStrip.TabIndex = 2;
             this.statusStrip.Text = "StatusStrip";
             // 
             // toolStripStatusLabel
             // 
             this.toolStripStatusLabel.Name = "toolStripStatusLabel";
-            this.toolStripStatusLabel.Size = new System.Drawing.Size(46, 23);
+            this.toolStripStatusLabel.Size = new System.Drawing.Size(31, 17);
             this.toolStripStatusLabel.Text = "狀態";
             // 
             // menuStrip1
@@ -65,33 +65,34 @@
             this.英文測驗ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1159, 32);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 1, 0, 1);
+            this.menuStrip1.Size = new System.Drawing.Size(1027, 24);
             this.menuStrip1.TabIndex = 4;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // 英文輸入ToolStripMenuItem
             // 
             this.英文輸入ToolStripMenuItem.Name = "英文輸入ToolStripMenuItem";
-            this.英文輸入ToolStripMenuItem.Size = new System.Drawing.Size(98, 28);
+            this.英文輸入ToolStripMenuItem.Size = new System.Drawing.Size(67, 22);
             this.英文輸入ToolStripMenuItem.Text = "英文紀錄";
-            this.英文輸入ToolStripMenuItem.Click += new System.EventHandler(this.英文輸入ToolStripMenuItem_Click);
+            this.英文輸入ToolStripMenuItem.Click += new System.EventHandler(this.EnglishNoteMenuItem_Click);
             // 
             // 英文測驗ToolStripMenuItem
             // 
             this.英文測驗ToolStripMenuItem.Name = "英文測驗ToolStripMenuItem";
-            this.英文測驗ToolStripMenuItem.Size = new System.Drawing.Size(98, 28);
+            this.英文測驗ToolStripMenuItem.Size = new System.Drawing.Size(67, 22);
             this.英文測驗ToolStripMenuItem.Text = "英文測驗";
-            this.英文測驗ToolStripMenuItem.Click += new System.EventHandler(this.英文測驗ToolStripMenuItem_Click);
+            this.英文測驗ToolStripMenuItem.Click += new System.EventHandler(this.EnglishTestMenuItem_Click);
             // 
             // FrmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 23F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1159, 801);
+            this.ClientSize = new System.Drawing.Size(1027, 733);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
-            this.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "FrmMain";
             this.Text = "FrmMain";
             this.statusStrip.ResumeLayout(false);

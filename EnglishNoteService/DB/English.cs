@@ -11,32 +11,36 @@ namespace EnglishNote.DB
     public class English : IDBSet
     {
         [SugarColumn(ColumnName = "english_id", IsPrimaryKey = true, IsIdentity = true)]
-        public int? EnglishId { get; set; }
+        public int? englishId { get; set; }
         [SugarColumn(ColumnName = "english_name")]
-        public string? EnglishName { get; set; }
+        public string? englishName { get; set; }
         [SugarColumn(ColumnName = "english_type")]
-        public string? EnglishType { get; set; }
+        public string? englishType { get; set; }
         [SugarColumn(ColumnName = "create_datetime")]
-        public DateTime? CreateDatetime { get; set; }
+        public DateTime? createDatetime { get; set; }
+        [SugarColumn(ColumnName = "finish_times")]
+        public int? finishTimes { get; set; }
+        [SugarColumn(ColumnName = "appear_times")]
+        public int? appearTimes { get; set; }
         [SugarColumn(ColumnName = "is_visible")]
-        public bool? IsVisible { get; set; }
+        public bool? isVisible { get; set; }
 
-        public void Delete(DB db)
+        public void delete(DB db)
         {
             db.Deleteable(this).ExecuteCommand();
         }
 
-        public void Insert(DB db)
+        public void insert(DB db)
         {
-            this.EnglishId = db.Insertable(this).ExecuteReturnIdentity();
+            this.englishId = db.Insertable(this).ExecuteReturnIdentity();
         }
 
-        public T Select<T>(DB db)
+        public T select<T>(DB db)
         {
             return default(T);
         }
 
-        public void Update(DB db)
+        public void update(DB db)
         {
             db.Updateable(this).ExecuteCommand();
         }

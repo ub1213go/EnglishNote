@@ -1,0 +1,17 @@
+D:\EnglishNote\Encrypt\bin\Debug\netcoreapp3.1\Encrypt.exe
+D:\EnglishNote\Encrypt\bin\Debug\netcoreapp3.1\Encrypt.deps.json
+D:\EnglishNote\Encrypt\bin\Debug\netcoreapp3.1\Encrypt.runtimeconfig.json
+D:\EnglishNote\Encrypt\bin\Debug\netcoreapp3.1\Encrypt.runtimeconfig.dev.json
+D:\EnglishNote\Encrypt\bin\Debug\netcoreapp3.1\Encrypt.dll
+D:\EnglishNote\Encrypt\bin\Debug\netcoreapp3.1\Encrypt.pdb
+D:\EnglishNote\Encrypt\obj\Debug\netcoreapp3.1\Encrypt.csproj.AssemblyReference.cache
+D:\EnglishNote\Encrypt\obj\Debug\netcoreapp3.1\Encrypt.GeneratedMSBuildEditorConfig.editorconfig
+D:\EnglishNote\Encrypt\obj\Debug\netcoreapp3.1\Encrypt.AssemblyInfoInputs.cache
+D:\EnglishNote\Encrypt\obj\Debug\netcoreapp3.1\Encrypt.AssemblyInfo.cs
+D:\EnglishNote\Encrypt\obj\Debug\netcoreapp3.1\Encrypt.csproj.CoreCompileInputs.cache
+D:\EnglishNote\Encrypt\obj\Debug\netcoreapp3.1\Encrypt.dll
+D:\EnglishNote\Encrypt\obj\Debug\netcoreapp3.1\Encrypt.pdb
+D:\EnglishNote\Encrypt\obj\Debug\netcoreapp3.1\Encrypt.genruntimeconfig.cache
+D:\EnglishNote\Encrypt\bin\Debug\netcoreapp3.1\JWT.dll
+D:\EnglishNote\Encrypt\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+D:\EnglishNote\Encrypt\obj\Debug\netcoreapp3.1\Encrypt.csproj.CopyComplete

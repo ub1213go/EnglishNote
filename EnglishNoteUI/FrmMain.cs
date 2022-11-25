@@ -22,7 +22,7 @@ namespace EnglishNoteUI
             _EnglishDataViewModel = new EnglishDataViewModel();
         }
 
-        private void 英文輸入ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void EnglishNoteMenuItem_Click(object sender, EventArgs e)
         {
             foreach (Form form in this.MdiChildren)
             {
@@ -41,7 +41,7 @@ namespace EnglishNoteUI
             frm.Show();
         }
 
-        private void 英文測驗ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void EnglishTestMenuItem_Click(object sender, EventArgs e)
         {
             foreach (Form form in this.MdiChildren)
             {

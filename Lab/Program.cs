@@ -1,19 +1,28 @@
-﻿// See https://aka.ms/new-console-template for more information
-using System;
-using System.Data.SqlClient;
-using System.Net;
-using EnglishNote.DB;
-using EnglishNote.Lab;
-using SqlSugar;
+﻿using Encrypt;
+using EnglishNoteService;
+using System.Reflection;
+using System.Security.Authentication.ExtendedProtection;
+using System.Security.Cryptography;
 
-Console.WriteLine("Hello World");
-
-var dbm = new DBManager();
-var db = dbm.Connect("EnglishNote");
-
-TEST t = new TEST();
-foreach(var item in t.EnglishTestData)
+namespace Lab
 {
-    item.Insert(db);
-}
+    public class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Hello, World!");
+            var x = new Test();
+            foreach (var prop in x.GetType().GetProperties())
+            {
+                Console.WriteLine(prop.Name);
+            }
 
+        }
+
+        public class Test
+        {
+            public int t;
+            public int T { get; set; }
+        }
+    }   
+}

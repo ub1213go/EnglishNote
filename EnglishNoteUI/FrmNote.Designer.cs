@@ -45,7 +45,8 @@
             // inp_english
             // 
             this.inp_english.CustomDataBindings = null;
-            this.inp_english.CustomEnabled = false;
+            this.inp_english.CustomEnabled = true;
+            this.inp_english.CustomReadOnly = false;
             this.inp_english.LabelName = "English";
             this.inp_english.Location = new System.Drawing.Point(8, 8);
             this.inp_english.Margin = new System.Windows.Forms.Padding(1);
@@ -57,7 +58,8 @@
             // inp_translate
             // 
             this.inp_translate.CustomDataBindings = null;
-            this.inp_translate.CustomEnabled = false;
+            this.inp_translate.CustomEnabled = true;
+            this.inp_translate.CustomReadOnly = false;
             this.inp_translate.LabelName = "Translate";
             this.inp_translate.Location = new System.Drawing.Point(8, 40);
             this.inp_translate.Margin = new System.Windows.Forms.Padding(1);
@@ -69,7 +71,8 @@
             // inp_pronounce
             // 
             this.inp_pronounce.CustomDataBindings = null;
-            this.inp_pronounce.CustomEnabled = false;
+            this.inp_pronounce.CustomEnabled = true;
+            this.inp_pronounce.CustomReadOnly = false;
             this.inp_pronounce.LabelName = "Pronuounce";
             this.inp_pronounce.Location = new System.Drawing.Point(8, 72);
             this.inp_pronounce.Margin = new System.Windows.Forms.Padding(1);

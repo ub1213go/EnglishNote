@@ -61,6 +61,17 @@ namespace EnglishNoteUI.Component
             }
         }
 
+        private bool _CustomReadOnly;
+        public bool CustomReadOnly
+        {
+            get { return _CustomReadOnly; }
+            set
+            {
+                _CustomReadOnly = value;
+                textBox1.ReadOnly = value;
+            }
+        }
+
         public GroupInput()
         {
             InitializeComponent();

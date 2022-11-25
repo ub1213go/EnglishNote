@@ -2761,7 +2761,7 @@
           "lib/netstandard1.3/System.Xml.XmlDocument.dll": {}
         }
       },
-      "Lab/1.0.0": {
+      "EnglishNoteService/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
@@ -2769,10 +2769,10 @@
           "System.Data.SqlClient": "4.8.3"
         },
         "compile": {
-          "bin/placeholder/Lab.dll": {}
+          "bin/placeholder/EnglishNoteService.dll": {}
         },
         "runtime": {
-          "bin/placeholder/Lab.dll": {}
+          "bin/placeholder/EnglishNoteService.dll": {}
         }
       }
     }
@@ -8972,15 +8972,15 @@
         "system.xml.xmldocument.nuspec"
       ]
     },
-    "Lab/1.0.0": {
+    "EnglishNoteService/1.0.0": {
       "type": "project",
-      "path": "../Lab/Lab.csproj",
-      "msbuildProject": "../Lab/Lab.csproj"
+      "path": "../EnglishNoteService/EnglishNoteService.csproj",
+      "msbuildProject": "../EnglishNoteService/EnglishNoteService.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "Lab >= 1.0.0",
+      "EnglishNoteService >= 1.0.0",
       "MSTest.TestAdapter >= 2.2.8",
       "MSTest.TestFramework >= 2.2.8",
       "Microsoft.NET.Test.Sdk >= 17.1.0",
@@ -8988,25 +8988,27 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ub121\\.nuget\\packages\\": {},
+    "C:\\Users\\ub\\.nuget\\packages\\": {},
     "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
-    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
+    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Code\\cs\\EnglishNote\\UnitTest\\UnitTest.csproj",
+      "projectUniqueName": "D:\\EnglishNote\\UnitTest\\UnitTest.csproj",
       "projectName": "UnitTest",
-      "projectPath": "D:\\Code\\cs\\EnglishNote\\UnitTest\\UnitTest.csproj",
-      "packagesPath": "C:\\Users\\ub121\\.nuget\\packages\\",
-      "outputPath": "D:\\Code\\cs\\EnglishNote\\UnitTest\\obj\\",
+      "projectPath": "D:\\EnglishNote\\UnitTest\\UnitTest.csproj",
+      "packagesPath": "C:\\Users\\ub\\.nuget\\packages\\",
+      "outputPath": "D:\\EnglishNote\\UnitTest\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\ub121\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ub\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
@@ -9016,15 +9018,14 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "D:\\Code\\cs\\EnglishNote\\Lab\\Lab.csproj": {
-              "projectPath": "D:\\Code\\cs\\EnglishNote\\Lab\\Lab.csproj"
+            "D:\\EnglishNote\\EnglishNoteService\\EnglishNoteService.csproj": {
+              "projectPath": "D:\\EnglishNote\\EnglishNoteService\\EnglishNoteService.csproj"
             }
           }
         }
@@ -9072,7 +9073,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
       }
     }
   }

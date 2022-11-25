@@ -12,13 +12,29 @@ namespace EnglishNoteUI
 {
     public partial class FrmNote : Form
     {
-        public enum EUIStatus { 
+        public enum EUIStatus {
             None = 0,
             Read = 1,
             Edit = 2,
             Add = 3,
             Delete = 4
         }
+
+        public enum EEnglishDataMapping
+        {
+            englishId,
+            englishName,
+            translate,
+            pronounce
+        }
+
+        public Dictionary<EEnglishDataMapping, string> englishDataMapping = new Dictionary<EEnglishDataMapping, string>()
+        {
+            { EEnglishDataMapping.englishId, "englishId" },
+            { EEnglishDataMapping.englishName, "englishName" },
+            { EEnglishDataMapping.translate, "translate" },
+            { EEnglishDataMapping.pronounce, "pronounce" }
+        };
 
         //public DataTable dt { get; set; }
 
@@ -51,10 +67,10 @@ namespace EnglishNoteUI
         {
             DataTable table = new DataTable();
             var colsName = typeof(EnglishData).GetProperties();
-            List<EnglishData> list = englishDataViewModel.GetAll().ToList();
+            List<EnglishData> list = englishDataViewModel.getAll().ToList();
             for (int i = 0; i < colsName.Length; i++)
             {
-                if (colsName[i].Name == "EnglishId")
+                if (colsName[i].Name == "englishId")
                 {
                     table.Columns.Add(colsName[i].Name, typeof(int));
                 }
@@ -82,11 +98,10 @@ namespace EnglishNoteUI
                 grid.Columns[i].Width = 180;
             }
             grid.Columns[0].Width = 70;
-            grid.Columns[grid.Columns.Count - 1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
-            inp_english.CustomDataBindings = new Binding("Text", bindingSource,"EnglishName");
-            inp_translate.CustomDataBindings = new Binding("Text", bindingSource,"Translate");
-            inp_pronounce.CustomDataBindings = new Binding("Text", bindingSource, "Pronounce");
+            inp_english.CustomDataBindings = new Binding("Text", bindingSource, EEnglishDataMapping.englishName.ToString());
+            inp_translate.CustomDataBindings = new Binding("Text", bindingSource, EEnglishDataMapping.translate.ToString());
+            inp_pronounce.CustomDataBindings = new Binding("Text", bindingSource, EEnglishDataMapping.pronounce.ToString());
         }
 
         private void enter_Click(object sender, EventArgs e)
@@ -95,32 +110,41 @@ namespace EnglishNoteUI
             var trn = inp_translate.TextBoxText?.Trim() ?? "";
             var pro = inp_pronounce.TextBoxText?.Trim() ?? "";
             
-            var cur = (EnglishData)bindingSource.Current;
-            cur.EnglishName = eng;
-            cur.Translate = trn;
-            cur.Pronounce = pro;
+            var cur = (DataRowView)bindingSource.Current;
+
+            cur[EEnglishDataMapping.englishName.ToString()] = eng;
+            cur[EEnglishDataMapping.translate.ToString()] = trn;
+            cur[EEnglishDataMapping.pronounce.ToString()] = pro;
             if (UIStatus == EUIStatus.Add)
             {
                 bindingSource.EndEdit();
-                var newData = englishDataViewModel.Add(new EnglishData() { 
-                    EnglishName = cur.EnglishName, 
-                    Translate = cur.Translate, 
-                    Pronounce = cur.Pronounce
+                var newData = englishDataViewModel.add(new EnglishData() { 
+                    englishName = eng, 
+                    translate = trn, 
+                    pronounce = pro
                 });
-                cur.EnglishId = newData.EnglishId;
+                cur[EEnglishDataMapping.englishId.ToString()] = newData.englishId;
                 
                 btn_add.Focus();
             }
             else if(UIStatus == EUIStatus.Edit)
             {
                 bindingSource.EndEdit();
-                var editData = englishDataViewModel.Update(cur);
+                englishDataViewModel.update(new EnglishData()
+                {
+                    englishId = Convert.ToInt32(cur[EEnglishDataMapping.englishId.ToString()]),
+                    englishName = eng,
+                    translate = trn,
+                    pronounce = pro
+                });
                 btn_edit.Focus();
             }
             bindingSource.ResetCurrentItem();
             UIStatus = EUIStatus.Read;
+            btn_add.Focus();
             refreshUI();
         }
+
 
         private void btn_cancel_Click(object sender, EventArgs e)
         {
@@ -141,18 +165,18 @@ namespace EnglishNoteUI
             var confirm = MessageBox.Show("確定要刪除？", "是否刪除", MessageBoxButtons.YesNo);
             if(confirm == DialogResult.Yes)
             {
-                englishDataViewModel.Delete((int)grid.CurrentRow.Cells[0].Value);
+                englishDataViewModel.delete((int)grid.CurrentRow.Cells[0].Value);
                 bindingSource.RemoveCurrent();
             }
         }
 
         public void refreshUI()
         {
-            if(UIStatus == EUIStatus.Read)
+            if (UIStatus == EUIStatus.Read)
             {
-                inp_translate.CustomEnabled = false;
-                inp_pronounce.CustomEnabled = false;
-                inp_english.CustomEnabled = false;
+                inp_translate.CustomReadOnly = true;
+                inp_pronounce.CustomReadOnly = true;
+                inp_english.CustomReadOnly = true;
                 btn_cancel.Enabled = false;
                 btn_enter.Enabled = false;
                 btn_add.Enabled = true;
@@ -161,9 +185,9 @@ namespace EnglishNoteUI
             }
             else if(UIStatus == EUIStatus.Add || UIStatus == EUIStatus.Edit)
             {
-                inp_english.CustomEnabled = true;
-                inp_translate.CustomEnabled = true;
-                inp_pronounce.CustomEnabled = true;
+                inp_english.CustomReadOnly = false;
+                inp_translate.CustomReadOnly = false;
+                inp_pronounce.CustomReadOnly = false;
                 btn_cancel.Enabled = true;
                 btn_enter.Enabled = true;
                 btn_add.Enabled = false;

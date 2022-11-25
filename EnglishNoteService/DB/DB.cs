@@ -37,6 +37,7 @@ namespace EnglishNote.DB
             };
         }
     }
+    
     public class DB : SqlSugarClient
     {
         public DB(ConnectionConfig config) : base(config)
@@ -44,18 +45,20 @@ namespace EnglishNote.DB
 
         }
 
-        public object GetEnglishList()
+        public object getEnglishList()
         {
             return Queryable<English>()
-                .LeftJoin<EnglishTranslate>((e, et) => e.EnglishId == et.EnglishId)
-                .LeftJoin<EnglishPronounce>((e, et, ep) => e.EnglishId == ep.EnglishId)
-                .OrderBy((e, et, ep) => e.EnglishId, OrderByType.Desc)
+                .LeftJoin<EnglishTranslate>((e, et) => e.englishId == et.englishId)
+                .LeftJoin<EnglishPronounce>((e, et, ep) => e.englishId == ep.englishId)
+                .OrderBy((e, et, ep) => e.englishId, OrderByType.Desc)
                 .Select((e, et, ep) => new
                 {
-                    EnglishId = e.EnglishId,
-                    EnglishName = e.EnglishName,
-                    Translate = et.Translate,
-                    Pronounce = ep.Pronounce
+                    englishId = e.englishId,
+                    englishName = e.englishName,
+                    translate = et.translate,
+                    pronounce = ep.pronounce,
+                    appearTimes = e.appearTimes,
+                    finishTimes = e.finishTimes
                 })
                 .ToList();
         }
@@ -63,10 +66,10 @@ namespace EnglishNote.DB
     
     public interface IDBSet
     {
-        void Insert(DB db);
-        void Delete(DB db);
-        void Update(DB db);
-        T Select<T>(DB db);
+        void insert(DB db);
+        void delete(DB db);
+        void update(DB db);
+        T select<T>(DB db);
     }
 
     public class DBException : Exception

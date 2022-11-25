@@ -24,6 +24,7 @@ namespace EnglishNoteUI
 
         public List<TestData[]> quizs;
         public int quizIndex;
+        public bool firstTimeCorrect;
 
         public delegate void QuizDataChange(object sender, EventArgs e);
 
@@ -60,10 +61,15 @@ namespace EnglishNoteUI
                 if(quizs[quizIndex][0].Equals(quizs[quizIndex][inputQuizIndex]))
                 {
                     MessageBox.Show("恭喜你答對了！");
+                    if(firstTimeCorrect == true)
+                    {
+                        englishDataViewModel.addFinishTimes(new EnglishData() { englishId = quizs[quizIndex][0].englishId });
+                    }
                     nextQuiz();
                 }
                 else
                 {
+                    firstTimeCorrect = false;
                     MessageBox.Show("答錯了！");
                 }
             }
@@ -79,9 +85,12 @@ namespace EnglishNoteUI
 
         private void initTestData()
         {
-            testDataConvertService.englishData = englishDataViewModel.GetAll(); ;
+            testDataConvertService.englishData = englishDataViewModel
+                .getAll()
+                .OrderBy(p=> (p.finishTimes / (p.appearTimes == 0 ? 1 : p.appearTimes) * 100))
+                .ToList();
             var testData = testDataConvertService.getTestData();
-            var testNumber = randomTestService.GetTestNumber(testData.Count, 5);
+            var testNumber = randomTestService.getTestNumber(testData.Count, 5);
             foreach(var num in testNumber)
             {
                 TestData[] quiz = new TestData[num.Length];
@@ -112,15 +121,16 @@ namespace EnglishNoteUI
                 {
                     if (i == 0)
                     {
-                        res += $"題目 {quizs[quizIndex][0].EnglishName} {String.Join(", ", quizs[quizIndex][0].Pronounce)}" + Environment.NewLine;
+                        res += $"題目 {quizs[quizIndex][0].englishName} {String.Join(", ", quizs[quizIndex][0].pronounce)}" + Environment.NewLine;
                     }
                     else
                     {
-                        var someOne = myRandomService.Next(quizs[0][i].Translate.Count);
-                        res += $"{i}. {quizs[quizIndex][i].Translate[someOne]}" + Environment.NewLine;
+                        var someOne = myRandomService.Next(quizs[0][i].translate.Count);
+                        res += $"{i}. {quizs[quizIndex][i].translate[someOne]}" + Environment.NewLine;
                     }
                 }
                 tb_quizsBoard.Text = res;
+                englishDataViewModel.addAppearTimes(new EnglishData() { englishId = quizs[quizIndex][0].englishId });
             }
             else
             {
@@ -131,6 +141,7 @@ namespace EnglishNoteUI
 
         private void quizsDataChange(object sender, EventArgs e)
         {
+            firstTimeCorrect = true;
             showQuizToBoard();
         }
 
